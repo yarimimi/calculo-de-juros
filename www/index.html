@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Juros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #calculadora {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        h2 {
+            color: #007BFF;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p#resultado {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculadora">
+        <h2>Calculadora de Juros</h2>
+        <label for="montante">Montante do empréstimo:</label>
+        <input type="number" id="montante" placeholder="Informe o montante do empréstimo">
+        <label for="taxa">Taxa de juros anual (%):</label>
+        <input type="number" id="taxa" placeholder="Informe a taxa de juros">
+        <label for="prazo">Prazo do empréstimo (meses):</label>
+        <input type="number" id="prazo" placeholder="Informe o prazo em meses">
+        <button onclick="calcularJuros()">Calcular Juros</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function calcularJuros() {
+            var montante = parseFloat(document.getElementById('montante').value);
+            var taxa = parseFloat(document.getElementById('taxa').value);
+            var prazo = parseInt(document.getElementById('prazo').value);
+
+            var juros = (montante * taxa * prazo) / (12 * 100);
+
+            document.getElementById('resultado').innerHTML = "Juros a serem pagos: R$" + juros.toFixed(2);
+        }
+    </script>
+</body>
+</html>
